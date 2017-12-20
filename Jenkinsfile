@@ -1,9 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('nanka') {
+    stage('nanka1') {
+      environment {
+        nanka = 'val'
+      }
       parallel {
-        stage('nanka') {
+        stage('nanka2') {
           steps {
             timestamps() {
               sleep 10
@@ -11,7 +14,7 @@ pipeline {
             
           }
         }
-        stage('hoge') {
+        stage('hoge1') {
           steps {
             sh 'echo \'hoge\''
             sleep 3
